@@ -1,3 +1,4 @@
+import AuthContext from '@/contexts/auth-context'
 import './globals.css'
 
 export const metadata = {
@@ -12,7 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <AuthContext>
+        <body className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+          {children}
+        </body>
+      </AuthContext>
     </html>
   )
 }

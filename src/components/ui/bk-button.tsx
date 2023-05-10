@@ -25,20 +25,20 @@ const buttonVariants = cva(['px-4', 'py-2', 'rounded-md', 'text-white'], {
 })
 
 interface BKButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
-
+  extends VariantProps<typeof buttonVariants>,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: 'button' | 'submit' | 'reset' | undefined
+}
 const BKButton = forwardRef<HTMLButtonElement, BKButtonProps>(
   ({ className, ...props }, ref) => {
     return (
       <button
-        ref={ref}
         {...props}
+        ref={ref}
         className={classNames(
           twMerge(
             buttonVariants({
               intent: props.intent,
-              size: props.size,
             }),
           ),
         )}
