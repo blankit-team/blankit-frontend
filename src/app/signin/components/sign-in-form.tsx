@@ -33,7 +33,7 @@ export default function SignInForm() {
           type="password"
         />
         {passwordError && <p className="text-red-500">{passwordError}</p>}
-        <BKButton type="submit">Sign In</BKButton>
+        <BKButton type="submit">로그인</BKButton>
       </form>
     </>
   )
