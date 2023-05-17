@@ -1,24 +1,56 @@
+import loginUser from '@/services/user/login-user'
+import { signupUserOAuth } from '@/services/user/signup-user'
 import NextAuth, { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 import KaKaoProvider from 'next-auth/providers/kakao'
 import NaverProvider from 'next-auth/providers/naver'
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   callbacks: {
-    jwt({ user, token }) {
+    async signIn({ user, account, profile }) {
+      // 최초 Oauth 로그인 시 회원가입
+      if (account?.provider === 'oauth' && !user) {
+        const userData = { ...profile }
+
+        try {
+          await signupUserOAuth(userData)
+          return true
+        } catch (error: any) {
+          throw new Error(error.message)
+        }
+      }
+
+      // 백엔드에서 유저 정보 및 access Token 발급
+      if (account?.provider === 'oauth' && account) {
+        try {
+          await loginUser({
+            id: account.id_token!,
+            password: account.accessToken as string,
+          })
+          // TODO: 유저 정보 및 access Token 저장
+          return true
+        } catch (error: any) {
+          throw new Error(error.message)
+        }
+      }
+
+      return true
+    },
+
+    async jwt({ user, token }) {
       return {
         ...token,
         ...user,
       }
     },
+
     async session({ token, session, user }) {
       session.user = {
         ...session.user,
         ...token,
         ...user,
       }
-
       return session
     },
   },
@@ -36,23 +68,21 @@ export const authOptions = {
       },
 
       async authorize(credentials) {
-        const res = await fetch('http://localhost:3000/api/user', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: { 'Content-Type': 'application/json' },
-        })
-
-        const user = await res.json()
-        // If no error and we have user data, return it
-        if (res.ok && user) {
+        if (!credentials || !credentials.email || !credentials.password) {
+          throw new Error('이메일과 비밀번호를 입력해주세요')
+        }
+        const { email, password } = credentials
+        try {
+          // 백엔드에서 유저 정보 및 access Token 발급
+          const user = await loginUser({
+            id: email,
+            password,
+          })
+          // TODO: access Token 저장
           return user
+        } catch (error: any) {
+          throw new Error(error.message)
         }
-        if (res.status === 401) {
-          // Return null if user data could not be retrieved
-          return null
-        }
-
-        return null
       },
     }),
     GoogleProvider({
@@ -72,7 +102,7 @@ export const authOptions = {
   pages: {
     signIn: '/signin',
   },
-} as AuthOptions
+}
 const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }

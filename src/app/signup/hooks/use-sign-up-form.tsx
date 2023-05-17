@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
-import signupUser from '@/services/user/signup-user'
+import { signupUserCredential } from '@/services/user/signup-user'
 import NAVIGATION_PATH from '@/config/navigation-path'
 
 export interface SignUpFormData {
@@ -19,7 +19,7 @@ export const useSignUpForm = () => {
   const router = useRouter()
 
   const mutation = useMutation({
-    mutationFn: signupUser,
+    mutationFn: signupUserCredential,
     onSuccess: () => router.push(NAVIGATION_PATH.SIGN_IN),
   })
 
