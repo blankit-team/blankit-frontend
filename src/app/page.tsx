@@ -3,9 +3,12 @@ import { authOptions } from './api/auth/[...nextauth]/route'
 import SignOutButton from '@/components/buttons/sign-out-button'
 import SignInButton from '@/components/buttons/sign-in-button'
 import SignUpButton from '@/components/buttons/sign-up-button'
+import { useSession } from 'next-auth/react'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
+  console.log(session)
+
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
       {session && (

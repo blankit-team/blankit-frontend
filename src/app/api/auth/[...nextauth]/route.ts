@@ -1,5 +1,8 @@
 import NextAuth, { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
+import KaKaoProvider from 'next-auth/providers/kakao'
+import NaverProvider from 'next-auth/providers/naver'
 
 export const authOptions = {
   callbacks: {
@@ -11,9 +14,9 @@ export const authOptions = {
     },
     async session({ token, session, user }) {
       session.user = {
-        username: token.username! as string,
-        email: token.email!,
-        accessToken: token.accessToken as string,
+        ...session.user,
+        ...token,
+        ...user,
       }
 
       return session
@@ -51,6 +54,18 @@ export const authOptions = {
 
         return null
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
+    }),
+    KaKaoProvider({
+      clientId: process.env.KAKAO_ID!,
+      clientSecret: process.env.KAKAO_SECRET!,
+    }),
+    NaverProvider({
+      clientId: process.env.NAVER_ID!,
+      clientSecret: process.env.NAVER_SECRET!,
     }),
   ],
 
