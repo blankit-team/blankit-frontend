@@ -11,6 +11,9 @@ const buttonVariants = cva(['px-4', 'py-2', 'rounded-md', 'text-white'], {
       'primary-outline': 'bg-transparent text-blue-500 border border-blue-500',
       'secondary-outline':
         'bg-transparent text-gray-500 border border-gray-500',
+      google: 'bg-white text-gray-500 border border-gray-500',
+      kakao: 'bg-yellow-500 text-white border border-yellow-500',
+      naver: 'bg-green-500 text-white border border-green-500',
     },
     size: {
       sm: 'px-2 py-1 text-sm',
@@ -25,20 +28,20 @@ const buttonVariants = cva(['px-4', 'py-2', 'rounded-md', 'text-white'], {
 })
 
 interface BKButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
-
+  extends VariantProps<typeof buttonVariants>,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: 'button' | 'submit' | 'reset' | undefined
+}
 const BKButton = forwardRef<HTMLButtonElement, BKButtonProps>(
   ({ className, ...props }, ref) => {
     return (
       <button
-        ref={ref}
         {...props}
+        ref={ref}
         className={classNames(
           twMerge(
             buttonVariants({
               intent: props.intent,
-              size: props.size,
             }),
           ),
         )}

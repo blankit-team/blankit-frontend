@@ -1,16 +1,29 @@
-import API_ENDPOINTS from '@/config/api-endpoints'
-import NAVIGATION_PATH from '@/config/navigation-path'
-import BKButton from '@ui/bk-button'
-import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+import { authOptions } from './api/auth/[...nextauth]/route'
+import SignOutButton from '@/components/buttons/sign-out-button'
+import SignInButton from '@/components/buttons/sign-in-button'
+import SignUpButton from '@/components/buttons/sign-up-button'
+import { useSession } from 'next-auth/react'
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  console.log(session)
+
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
-      <Link href={NAVIGATION_PATH.SIGN_IN}>
-        <BKButton id={'target'} intent={'secondary'} size={'sm'}>
-          Hello
-        </BKButton>
-      </Link>
+      {session && (
+        <div className="flex flex-col gap-2">
+          <h2>{session?.user?.username}님 환영합니다.</h2>
+          <SignOutButton />
+        </div>
+      )}
+      {!session && (
+        <div className="flex flex-col gap-2">
+          <h2>안녕하세요</h2>
+          <SignInButton />
+          <SignUpButton />
+        </div>
+      )}
     </main>
   )
 }
