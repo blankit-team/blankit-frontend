@@ -4,12 +4,12 @@ import NextAuth, { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 import KaKaoProvider from 'next-auth/providers/kakao'
-import NaverProvider from 'next-auth/providers/naver'
 
 export const authOptions: AuthOptions = {
   callbacks: {
     async signIn({ user, account, profile }) {
       // 최초 Oauth 로그인 시 회원가입
+      console.log('account', account)
       if (account?.provider === 'oauth' && !user) {
         const userData = { ...profile }
 
@@ -92,10 +92,6 @@ export const authOptions: AuthOptions = {
     KaKaoProvider({
       clientId: process.env.KAKAO_ID!,
       clientSecret: process.env.KAKAO_SECRET!,
-    }),
-    NaverProvider({
-      clientId: process.env.NAVER_ID!,
-      clientSecret: process.env.NAVER_SECRET!,
     }),
   ],
 

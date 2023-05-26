@@ -19,12 +19,6 @@ export default function OAuthSignIn() {
       >
         Login With Kakao
       </BKButton>
-      <BKButton
-        intent={'naver'}
-        onClick={() => signIn('naver', { callbackUrl: NAVIGATION_PATH.HOME })}
-      >
-        Login With Naver
-      </BKButton>
     </div>
   )
 }
