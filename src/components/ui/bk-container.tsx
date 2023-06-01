@@ -9,11 +9,7 @@ interface BKContainerProps {
 
 export function BKContainer({ children, className }: BKContainerProps) {
   return (
-    <div
-      className={classNames(
-        twMerge('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8', className),
-      )}
-    >
+    <div className={classNames(twMerge('w-full max-w-7xl mx-auto', className))}>
       {children}
     </div>
   )
