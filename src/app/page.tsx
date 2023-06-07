@@ -2,7 +2,6 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
 import SignOutButton from '@/components/buttons/sign-out-button'
 import SignInButton from '@/components/buttons/sign-in-button'
-import SignUpButton from '@/components/buttons/sign-up-button'
 import { BKContainer } from '@/components/ui/bk-container'
 
 export default async function Home() {
@@ -22,7 +21,6 @@ export default async function Home() {
           <div className="flex flex-col gap-2">
             <h2>안녕하세요</h2>
             <SignInButton />
-            <SignUpButton />
           </div>
         )}
       </BKContainer>
