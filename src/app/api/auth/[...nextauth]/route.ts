@@ -1,7 +1,6 @@
 import loginUser from '@/services/user/login-user'
 import { signupUserOAuth } from '@/services/user/signup-user'
 import NextAuth, { AuthOptions } from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 import KaKaoProvider from 'next-auth/providers/kakao'
 
@@ -56,35 +55,6 @@ export const authOptions: AuthOptions = {
   },
 
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        email: {
-          label: 'email',
-          type: 'email',
-          placeholder: '이메일을 입력해주세요',
-        },
-        password: { label: 'Password', type: 'password' },
-      },
-
-      async authorize(credentials) {
-        if (!credentials || !credentials.email || !credentials.password) {
-          throw new Error('이메일과 비밀번호를 입력해주세요')
-        }
-        const { email, password } = credentials
-        try {
-          // 백엔드에서 유저 정보 및 access Token 발급
-          const user = await loginUser({
-            id: email,
-            password,
-          })
-          // TODO: access Token 저장
-          return user
-        } catch (error: any) {
-          throw new Error(error.message)
-        }
-      },
-    }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!,
