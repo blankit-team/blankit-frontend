@@ -39,6 +39,7 @@ const BKButton = forwardRef<HTMLButtonElement, BKButtonProps>(
           twMerge(
             buttonVariants({
               intent: props.intent,
+              className,
             }),
           ),
         )}

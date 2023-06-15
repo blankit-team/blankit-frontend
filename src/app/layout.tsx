@@ -20,7 +20,7 @@ export default function RootLayout({
         <AuthContext>
           <body className="text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100">
             <BKNavbar />
-            {children}
+            <div className="w-full mx-auto max-w-7xl">{children}</div>
           </body>
         </AuthContext>
       </TanstackQueryContext>
