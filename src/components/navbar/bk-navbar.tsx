@@ -17,7 +17,9 @@ export default function BKNavbar() {
           <ul className="flex gap-4">
             <NavigationLink href={NAVIGATION_PATH.HOME}>홈</NavigationLink>
             {/* TODO: 추후 페이지 추가시 NAVGIATION_PATH로 관리 */}
-            <NavigationLink href={'/feedbacks'}>피드백</NavigationLink>
+            <NavigationLink href={NAVIGATION_PATH.FEEDBACK}>
+              피드백
+            </NavigationLink>
             <NavigationLink href={'/works'}>작업물 보기</NavigationLink>
             <NavigationLink href={'/share'}>공유하기</NavigationLink>
           </ul>
