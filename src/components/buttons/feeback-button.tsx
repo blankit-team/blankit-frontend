@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import BKButton from '../ui/bk-button'
+import { BKButton } from '@/ui/bk-button'
 import { useRouter } from 'next/navigation'
 import NAVIGATION_PATH from '@/config/navigation-path'
 
