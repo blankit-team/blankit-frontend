@@ -1,5 +1,5 @@
 import API_ENDPOINTS from '@/config/api-endpoints'
-import { apiClient } from '../client'
+import { apiClient } from '@/lib/axios'
 import { Profile } from 'next-auth'
 
 type User = {
