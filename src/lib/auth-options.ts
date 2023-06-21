@@ -1,3 +1,9 @@
+import {
+  googleClientId,
+  googleClientSecret,
+  kakaoClientId,
+  kakaoClientSecret,
+} from '@/config/env'
 import loginUser from '@/services/user/login-user'
 import { signupUserOAuth } from '@/services/user/signup-user'
 import { AuthOptions } from 'next-auth'
@@ -56,12 +62,12 @@ export const authOptions: AuthOptions = {
 
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID!,
-      clientSecret: process.env.GOOGLE_SECRET!,
+      clientId: googleClientId,
+      clientSecret: googleClientSecret,
     }),
     KaKaoProvider({
-      clientId: process.env.KAKAO_ID!,
-      clientSecret: process.env.KAKAO_SECRET!,
+      clientId: kakaoClientId,
+      clientSecret: kakaoClientSecret,
     }),
   ],
 
