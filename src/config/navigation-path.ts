@@ -1,8 +1,8 @@
-const NAVIGATION_PATH = {
-  HOME: '/',
-  SIGN_IN: '/signin',
-  FEEDBACK: '/feedbacks/home',
-  FEEDBACK_NEW: `/feedbacks/new`,
+const NavigationPath = {
+  home: '/',
+  signin: '/signin',
+  feedback: '/feedbacks/home',
+  feedbackNew: `/feedbacks/new`,
 }
 
-export default NAVIGATION_PATH
+export default NavigationPath

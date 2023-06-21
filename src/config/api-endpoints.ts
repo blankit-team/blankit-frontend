@@ -1,6 +1,6 @@
-const API_ENDPOINTS = {
-  USER: '/api/user',
-  USER_SIGNUP: '/api/user/signup',
+const ApiEndPoint = {
+  user: '/api/user',
+  userSignup: '/api/user/signup',
 }
 
-export default API_ENDPOINTS
+export default ApiEndPoint

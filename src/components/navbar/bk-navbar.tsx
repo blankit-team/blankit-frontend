@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { BKContainer } from '../ui/bk-container'
-import NAVIGATION_PATH from '@/config/navigation-path'
+import NavigationPath from '@/config/navigation-path'
 import Link from 'next/link'
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
 import classNames from 'classnames'
@@ -15,9 +15,9 @@ export default function BKNavbar() {
         <BKLogo className="text-[32px]" />
         <div>
           <ul className="flex gap-4">
-            <NavigationLink href={NAVIGATION_PATH.HOME}>홈</NavigationLink>
+            <NavigationLink href={NavigationPath.home}>홈</NavigationLink>
             {/* TODO: 추후 페이지 추가시 NAVGIATION_PATH로 관리 */}
-            <NavigationLink href={NAVIGATION_PATH.FEEDBACK}>
+            <NavigationLink href={NavigationPath.feedback}>
               피드백
             </NavigationLink>
             <NavigationLink href={'/works'}>작업물 보기</NavigationLink>

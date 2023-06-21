@@ -1,5 +1,5 @@
-import API_ENDPOINTS from '@/config/api-endpoints'
-import { apiClient } from '../client'
+import ApiEndPoint from '@/config/api-endpoints'
+import { apiClient } from '@/lib/axios'
 
 type LoginData = {
   id: string
@@ -14,7 +14,7 @@ type User = {
 
 const loginUser = async (loginData: LoginData): Promise<User> => {
   return apiClient
-    .post(`${API_ENDPOINTS.USER}`, {
+    .post(`${ApiEndPoint.user}`, {
       id: loginData.id,
       password: loginData.password,
     })
