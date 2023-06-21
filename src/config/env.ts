@@ -1,12 +1,3 @@
-// GoogleProvider({
-//     clientId: process.env.GOOGLE_ID!,
-//     clientSecret: process.env.GOOGLE_SECRET!,
-//   }),
-//   KaKaoProvider({
-//     clientId: process.env.KAKAO_ID!,
-//     clientSecret: process.env.KAKAO_SECRET!,
-//   }),
-
 import { assertValue } from '@/utils/assert-value'
 
 export const googleClientId = assertValue<string>(
