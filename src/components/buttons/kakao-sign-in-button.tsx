@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react'
 import { BKButton } from '../ui/bk-button'
 import { BKIcons } from '../ui/bk-icons'
 import { signIn } from 'next-auth/react'
-import NAVIGATION_PATH from '@/config/navigation-path'
+import NavigationPath from '@/config/navigation-path'
 interface GoogleSignInButtonProps
   extends React.HTMLAttributes<HTMLButtonElement> {}
 
@@ -13,7 +13,7 @@ const KakaoSignInbutton: FunctionComponent<GoogleSignInButtonProps> = ({}) => {
       variant={'outline'}
       onClick={() =>
         signIn('kakao', {
-          callbackUrl: NAVIGATION_PATH.HOME,
+          callbackUrl: NavigationPath.home,
         })
       }
     >

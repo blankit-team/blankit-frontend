@@ -2,13 +2,13 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import SignOutButton from '@/components/buttons/sign-out-button'
 import { BKContainer } from '@/components/ui/bk-container'
-import NAVIGATION_PATH from '@/config/navigation-path'
+import NavigationPath from '@/config/navigation-path'
 import { authOptions } from '@/lib/auth-options'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
   if (!session) {
-    redirect(NAVIGATION_PATH.SIGN_IN)
+    redirect(NavigationPath.signin)
   }
 
   return (

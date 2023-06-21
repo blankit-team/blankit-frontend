@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { redirect } from 'next/navigation'
-import NAVIGATION_PATH from '@/config/navigation-path'
+import NavigationPath from '@/config/navigation-path'
 import { ApiAddressTypes } from '@/types/config'
 import { baseUrl } from '@/config/public-env'
 import { nodeEnv } from '@/config/env'
@@ -25,7 +25,7 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 401) {
-      redirect(NAVIGATION_PATH.SIGN_IN)
+      redirect(NavigationPath.signin)
     }
     return Promise.reject(error)
   },
