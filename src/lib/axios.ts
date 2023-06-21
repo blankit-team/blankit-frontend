@@ -1,11 +1,19 @@
 import axios from 'axios'
 
-import { apiAddress, env } from '@/config/dev-mode'
 import { redirect } from 'next/navigation'
 import NAVIGATION_PATH from '@/config/navigation-path'
+import { ApiAddressTypes } from '@/types/config'
+import { baseUrl } from '@/config/public-env'
+import { nodeEnv } from '@/config/env'
+
+const baseUrlTable: ApiAddressTypes = {
+  production: baseUrl,
+  development: 'http://localhost:3000',
+  test: 'http://localhost:3000',
+}
 
 export const apiClient = axios.create({
-  baseURL: apiAddress[env],
+  baseURL: baseUrlTable[nodeEnv],
   headers: {
     'Content-Type': 'application/json',
   },
