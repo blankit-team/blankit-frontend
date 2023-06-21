@@ -7,7 +7,6 @@
 //     clientSecret: process.env.KAKAO_SECRET!,
 //   }),
 
-import { EnvironmentTypes } from '@/types/config'
 import { assertValue } from '@/utils/assert-value'
 
 export const googleClientId = assertValue<string>(
@@ -30,4 +29,4 @@ export const kakaoClientSecret = assertValue<string>(
   'KAKAO_SECRET이 설정되지 않았습니다.',
 )
 
-export const nodeEnv: EnvironmentTypes = process.env.NODE_ENV
+export const nodeEnv = process.env.NODE_ENV
