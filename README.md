@@ -15,6 +15,7 @@ yarn test
 ```
 
 ## Commit Messeage Prefix
+
 ( ) => : :
 
 - 🎉 (tada) 새로운 기능 추가
@@ -27,4 +28,37 @@ yarn test
 - 🧹 (broom) 코드 정리 - lint
 - 🚚 (truck) 파일 이동
 
-## env example
+## env
+
+`.env.local` 파일 생성
+
+```
+NEXTAUTH_URL=<NEXTAUTH_URL>
+NEXTAUTH_SECRET=<NEXTAUTH_SECRET>
+
+NEXT_PUBLIC_API_ADDRESS=
+
+KAKAO_ID=
+KAKAO_SECRET=
+KAKAO_AK=
+
+GOOGLE_ID=
+GOOGLE_SECRET=
+```
+
+## Getting started
+
+[node 설치](https://nodejs.org/en)
+
+### dependency 설치
+
+```
+yarn install
+```
+
+### 빌드 후 실행
+
+```
+yarn build
+yarn start
+```
