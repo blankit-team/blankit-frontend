@@ -1,18 +1,18 @@
 'use client'
 
 import React from 'react'
-import { BKContainer } from '../ui/bk-container'
+import { Container } from '../ui/container'
 import NavigationPath from '@/config/navigation-path'
 import Link from 'next/link'
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import classNames from 'classnames'
-import BKLogo from '../ui/bk-logo'
+import Logo from '../ui/logo'
 
-export default function BKNavbar() {
+export default function Navbar() {
   return (
     <div>
-      <BKContainer className="flex items-center justify-between py-2 ">
-        <BKLogo className="text-[32px]" />
+      <Container className="flex items-center justify-between py-2 ">
+        <Logo className="text-[32px]" />
         <div>
           <ul className="flex gap-4">
             <NavigationLink href={NavigationPath.home}>홈</NavigationLink>
@@ -24,7 +24,7 @@ export default function BKNavbar() {
             <NavigationLink href={'/share'}>공유하기</NavigationLink>
           </ul>
         </div>
-      </BKContainer>
+      </Container>
     </div>
   )
 }

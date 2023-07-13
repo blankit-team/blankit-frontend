@@ -16,7 +16,7 @@ interface SelectorProp {
   unavailable?: boolean
 }
 
-export default function BKSelector({
+export default function Selector({
   data = example,
 }: {
   data?: SelectorProp[]

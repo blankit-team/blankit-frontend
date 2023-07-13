@@ -15,13 +15,13 @@ const checkBoxVariants = cva([''], {
   },
 })
 
-interface BKCheckBoxProps
+interface CheckBoxProps
   extends VariantProps<typeof checkBoxVariants>,
     React.ButtonHTMLAttributes<HTMLInputElement> {
   value: string
 }
 
-const BKCheckBox = forwardRef<HTMLInputElement, BKCheckBoxProps>(
+const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   ({ className, value, ...props }, ref) => {
     return (
       <div className="flex items-center gap-1 ">
@@ -40,6 +40,6 @@ const BKCheckBox = forwardRef<HTMLInputElement, BKCheckBoxProps>(
   },
 )
 
-BKCheckBox.displayName = 'BKCheckBox'
+CheckBox.displayName = 'CheckBox'
 
-export default BKCheckBox
+export default CheckBox

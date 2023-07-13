@@ -1,4 +1,4 @@
-import BKSelector from '@/components/ui/bk-selector'
+import Selector from '@/components/ui/selector'
 import React from 'react'
 
 const workYear = [
@@ -26,8 +26,8 @@ export default function JobForm({ name = '김블랭' }: { name?: string }) {
         {name}님, 어떤 일을 하고 계신가요?
       </h2>
       <div className="flex w-5/6 m-auto border-[#AAAAAA] border-b-2 justify-around">
-        <BKSelector data={workYear} />
-        <BKSelector data={role} />
+        <Selector data={workYear} />
+        <Selector data={role} />
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import NameForm from './sections/name-form'
 import JobForm from './sections/job-form'
 import AccountForm from './sections/account-form'
-import { BKButton } from '@/ui/bk-button'
+import { BKButton } from '@/components/ui/button'
 
 export default function JoinForm() {
   const [step, setStep] = useState(1)

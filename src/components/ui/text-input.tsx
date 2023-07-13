@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-const BKTextInput = forwardRef<
+const TextInput = forwardRef<
   HTMLInputElement,
   React.HTMLProps<HTMLInputElement>
 >(({ className, ...props }, ref) => {
@@ -37,6 +37,6 @@ const BKTextInput = forwardRef<
   )
 })
 
-BKTextInput.displayName = 'BKTextInput'
+TextInput.displayName = 'TextInput'
 
-export default BKTextInput
+export default TextInput
