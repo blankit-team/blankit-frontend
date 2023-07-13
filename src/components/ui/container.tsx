@@ -7,7 +7,7 @@ interface BKContainerProps {
   className?: string
 }
 
-export function BKContainer({ children, className }: BKContainerProps) {
+export function Container({ children, className }: BKContainerProps) {
   return (
     <div className={classNames(twMerge('w-full max-w-7xl mx-auto', className))}>
       {children}

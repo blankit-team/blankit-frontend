@@ -2,7 +2,7 @@ import AuthContext from '@/contexts/auth-context'
 import './globals.css'
 import React from 'react'
 import TanstackQueryContext from '@/contexts/tanstack-query-context'
-import BKNavbar from '@/components/navbar/bk-navbar'
+import Navbar from '@/components/navbar/navbar'
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,7 +19,7 @@ export default function RootLayout({
       <TanstackQueryContext>
         <AuthContext>
           <body className="text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-100">
-            <BKNavbar />
+            <Navbar />
             <div className="w-full mx-auto max-w-7xl">{children}</div>
           </body>
         </AuthContext>

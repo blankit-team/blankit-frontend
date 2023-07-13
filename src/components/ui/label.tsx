@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-const BKLabel = forwardRef<HTMLLabelElement, React.HTMLProps<HTMLLabelElement>>(
+const Label = forwardRef<HTMLLabelElement, React.HTMLProps<HTMLLabelElement>>(
   ({ className, htmlFor, ...props }, ref) => {
     return (
       <label
@@ -20,6 +20,6 @@ const BKLabel = forwardRef<HTMLLabelElement, React.HTMLProps<HTMLLabelElement>>(
   },
 )
 
-BKLabel.displayName = 'BKLabel'
+Label.displayName = 'Label'
 
-export default BKLabel
+export default Label

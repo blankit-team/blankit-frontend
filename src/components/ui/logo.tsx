@@ -6,7 +6,7 @@ interface Props {
   className?: string
 }
 
-export default function BKLogo({ className }: Props) {
+export default function Logo({ className }: Props) {
   return (
     <h1 className={classNames(twMerge('text-[32px]', 'font-thin', className))}>
       Blankit
